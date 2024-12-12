@@ -272,12 +272,19 @@ def all_game_list(user_name=None):
             f"{game_list[game]['game_type']}, {game_list[game]['user_name']}, {game_list[game]['introduction']}"
             for game in game_list if game_list[game]['user_name'] == user_name
         ]
+        if not game:
+            game_str = "NO GAMES"
+        else:
+            game_str = ';'.join(game)
     else:
         game = [
             f"{game_list[game]['game_type']}, {game_list[game]['user_name']}, {game_list[game]['introduction']}"
             for game in game_list
         ]
-    game_str = ';'.join(game)
+        if not game:
+            game_str = "NO GAMES"
+        else :
+            game_str = ';'.join(game)
     return f"GAME_LIST:{game_str}"
 
 ####################################################
